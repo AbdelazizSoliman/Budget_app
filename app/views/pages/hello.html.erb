@@ -1,0 +1,24 @@
+<div>
+  <p>Welcome!</p>
+  <h1 >
+
+  </h1>
+  <div>
+    <% if user_signed_in? %>
+      <div>
+        <a href="<%= categories_path %>">
+          <button>Let's start</button>
+        </a>
+      </div>
+    <% else %>
+      <div>
+        <a href="/users/sign_in">
+          <button>Sign in</button>
+        </a>
+        <a href="/users/sign_up">
+          <button>Sign up</button>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
