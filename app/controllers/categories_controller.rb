@@ -39,10 +39,26 @@ class CategoriesController < ApplicationController
   
     # PATCH/PUT /categories/1 or /categories/1.json
     def update
+      respond_to do |format|
+        if @category.update(category_params)
+          handle_uploaded_icon_file if category_params[:icon].present?
+          format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
+          format.json { render :show, status: :ok, location: @category }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @category.errors, status: :unprocessable_entity }
+        end
+      end
     end
   
     # DELETE /categories/1 or /categories/1.json
     def destroy
+      @category.destroy
+  
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   
     private
@@ -57,28 +73,13 @@ class CategoriesController < ApplicationController
       params.require(:category).permit(:name, :icon)
     end
   
-    # def handle_uploaded_icon_file
-    #     uploaded_file = params[:category][:icon]
-      
-    #     if uploaded_file.present?
-    #       # Specify the directory where you want to save the uploaded files
-    #       upload_dir = Rails.root.join('public', 'uploads')
-    #       FileUtils.mkdir_p(upload_dir) unless File.directory?(upload_dir)
-      
-    #       file_path = File.join(upload_dir, uploaded_file.original_filename)
-      
-    #       File.binwrite(file_path, uploaded_file.read)
-      
-    #       @category.update(icon: File.join('/uploads', uploaded_file.original_filename))
-    #     end
-    # end
-
     def handle_uploaded_icon_file
-        uploaded_file = category_params[:icon]
-        file_path = Rails.root.join('public', 'uploads', uploaded_file.original_filename)
-    
-        File.binwrite(file_path, uploaded_file.read)
-    
-        @category.update(icon: File.join('/uploads', uploaded_file.original_filename))
-      end
-end
+      uploaded_file = category_params[:icon]
+      file_path = Rails.root.join('public', 'uploads', uploaded_file.original_filename)
+  
+      File.binwrite(file_path, uploaded_file.read)
+  
+      @category.update(icon: File.join('/uploads', uploaded_file.original_filename))
+    end
+  end
+  
