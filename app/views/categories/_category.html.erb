@@ -1,7 +1,13 @@
 <div>
-    <% if category.icon.present? %>
-        <%= image_tag category.icon, alt: category.name %>
+   <div>
+  <% if category.icon.present? %>
+    <% if category.icon.end_with?('.png', '.jpg', '.jpeg') %>
+      <%= image_tag category.icon, alt: category.name %>
+    <% else %>
+      <p>Unsupported image format</p>
     <% end %>
+  <% end %>
+</div>
 
   <div>
     <div>
