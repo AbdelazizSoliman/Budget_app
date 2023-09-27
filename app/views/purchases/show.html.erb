@@ -1,0 +1,31 @@
+<div>
+  <ul>
+     <%= link_to 'Back', categories_path %>
+    <h2><strong>Show purchase</strong></h2>
+    <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }%></li>
+  </ul>
+</div>
+<p style="color: green"><%= notice %></p>
+
+<div>
+  <p>
+    <span><strong>Name:</strong></span>
+    <span><%= @purchase.name %></span>
+  </p>
+  <p>
+    <span><strong>Amount:</strong></span>
+    <span>$<%= @purchase.amount %></span>
+  </p>
+  <p>
+    <span><strong>Categories:</strong></span>
+    <span><%= @purchase.categories[0].name %></span>
+  </p>
+  <p>
+    <span><strong>Created at:</strong></span>
+    <span><%= @purchase.created_at %></span>
+  </p>
+</div>
+
+<div>
+  <%= button_to "Delete", @purchase, method: :delete %>
+</div>
