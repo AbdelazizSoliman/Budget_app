@@ -44,13 +44,17 @@
   </div>
 </div>
 
-  <div class="container-fluid fixed-center">
-  <div class="row mt-4">
-    <div class="col-md-12 text-center">
-      <%= link_to new_category_path, class: "btn btn-success" do %>
-        <strong>Add a New Category</strong>
-      <% end %>
+ <div class="container-fluid fixed-bottom">
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+           
+                <a href="<%= new_category_path %>" class="btn btn-success btn-block mx-auto w-100">
+                    <strong> <div class="border border-white p-4"> Add a New Category</div></strong>
+                </a>
+            
+        </div>
     </div>
-  </div>
 </div>
+
+
 </div>
