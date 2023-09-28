@@ -1,37 +1,56 @@
-<div">
-  <div>
-    <div>
-      <ul>
-       <li>
-  <%= link_to 'Back', root_path%>
-</li>
-        <h2><strong>Categories</strong></h2>
-        <li>
-          <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
+<div class="container">
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><strong>Categories</strong></a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <!-- Include your category links here -->
+          <% @categories.each do |category| %>
+            <li class="nav-item">
+              <a class="nav-link" href="<%= category_path(category) %>"><%= category.name %></a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
         </li>
       </ul>
     </div>
+  </nav>
 
-    <section>
-      <p style="color: green"><%= notice %></p>
+<div class="container mt-4">
+  <p style="color: green"><%= notice %></p>
 
-      <div>
-        <% @categories.each do |category| %>
-          <a href="<%= category_path(category) %>">
-            <%= render category %>
-          </a>
-        <% end %>
-      </div>
-    </section>
-  </div>
-
-  <section>
-    <%= link_to new_category_path do %>
-      <div>
-        <button>
-          <strong>Add a New Category</strong>
-        </button>
+  <div class="row">
+    <!-- Your category cards here -->
+    <% @categories.each do |category| %>
+      <div class="col-md-4 mb-4">
+        <a href="<%= category_path(category) %>" class="card-link">
+          <div class="card">
+            <!-- You can customize the card content as needed -->
+            <div class="card-body">
+              <%= render category %>
+            </div>
+          </div>
+        </a>
       </div>
     <% end %>
-  </section>
+  </div>
+</div>
+
+  <div class="container-fluid fixed-center">
+  <div class="row mt-4">
+    <div class="col-md-12 text-center">
+      <%= link_to new_category_path, class: "btn btn-success" do %>
+        <strong>Add a New Category</strong>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>

@@ -1,6 +1,6 @@
-<%= form_with(model: category) do |form| %>
+<%= form_with(model: category, html: { class: "mt-4" }) do |form| %>
   <% if category.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
       <ul>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :icon, style: "display: block" %>
-    <%= form.file_field :icon, id: 'icon_upload' %>
+  <br>
+  <div class="form-group">
+    <%= form.label :icon %>
+    <%= form.file_field :icon, id: 'icon_upload', class: "form-control-file" %>
   </div>
-
-  <div>
-    <%= form.submit "Save" %>
+  <br>
+  <div class="form-group">
+    <%= form.submit "Save", class: "btn btn-primary" %>
   </div>
 <% end %>

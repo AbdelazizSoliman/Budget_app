@@ -1,26 +1,18 @@
-<div>
-   <div>
-  <% if category.icon.present? %>
-    <% if category.icon.end_with?('.png', '.jpg', '.jpeg') %>
-      <%= image_tag category.icon, alt: category.name %>
-    <% else %>
-      <p>Unsupported image format</p>
-    <% end %>
-  <% end %>
-</div>
-
-  <div>
-    <div>
-    <p>
-      <strong><%= category.name %></strong>
-    </p>
-    <p>
-      <strong>Total: $<%= category.purchases.sum(:amount) %></strong>
-    </p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <% if category.icon.present? %>
+        <% if category.icon.end_with?('.png', '.jpg', '.jpeg') %>
+          <%= image_tag category.icon, alt: category.name, class: "img-fluid rounded-circle" %>
+        <% else %>
+          <p class="text-danger">Unsupported image format</p>
+        <% end %>
+      <% end %>
     </div>
-    
-    <p>
-    <span><%= category.created_at.strftime('%d %b %Y') %></span>
-    </p>
+    <div class="col-md-9">
+      <h4><strong><%= category.name %></strong></h4>
+      <p><strong>Total: $<%= category.purchases.sum(:amount) %></strong></p>
+      <p><span><%= category.created_at.strftime('%d %b %Y') %></span></p>
+    </div>
   </div>
 </div>

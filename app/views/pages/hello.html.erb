@@ -1,24 +1,19 @@
-<div>
-  <p>Welcome!</p>
-  <h1 >
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <h1 class="display-4">Welcome!</h1>
+      <!-- Add any additional content here if needed -->
 
-  </h1>
-  <div>
-    <% if user_signed_in? %>
-      <div>
-        <a href="<%= categories_path %>">
-          <button>Let's start</button>
-        </a>
-      </div>
-    <% else %>
-      <div>
-        <a href="/users/sign_in">
-          <button>Sign in</button>
-        </a>
-        <a href="/users/sign_up">
-          <button>Sign up</button>
-        </a>
-      </div>
-    <% end %>
+      <% if user_signed_in? %>
+        <div class="mt-4">
+          <a href="<%= categories_path %>" class="btn btn-primary btn-lg">Let's start</a>
+        </div>
+      <% else %>
+        <div class="mt-4">
+          <a href="/users/sign_in" class="btn btn-success btn-lg mr-3">Sign in</a>
+          <a href="/users/sign_up" class="btn btn-info btn-lg">Sign up</a>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
