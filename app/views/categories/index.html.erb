@@ -3,7 +3,7 @@
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon" aria-hidden="true"></span>
       </button>
       <a class="navbar-brand" href="#"><strong>Categories</strong></a>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -24,37 +24,35 @@
     </div>
   </nav>
 
-<div class="container mt-4">
-  <p style="color: green"><%= notice %></p>
-
-  <div class="row">
-    <!-- Your category cards here -->
+  <div class="container mt-4">
+    <p style="color: green"><%= notice %></p>
+    
+    <!-- Each category in its own full-width row -->
     <% @categories.each do |category| %>
-      <div class="col-md-4 mb-4">
-        <a href="<%= category_path(category) %>" class="card-link">
-          <div class="card">
-            <!-- You can customize the card content as needed -->
-            <div class="card-body">
-              <%= render category %>
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <a href="<%= category_path(category) %>" class="card-link">
+            <div class="card">
+              <!-- You can customize the card content as needed -->
+              <div class="card-body">
+                <%= render category %>
+              </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     <% end %>
   </div>
-</div>
 
- <div class="container-fluid fixed-bottom">
-    <div class="row mt-4">
+  <div class="container-fluid fixed-bottom">
+    <div class="row mt-2">
         <div class="col-md-12 text-center">
-           
-                <a href="<%= new_category_path %>" class="btn btn-lemon btn-block mx-auto w-100">
-                    <strong> <div class="border border-white p-4"> Add a New Category</div></strong>
-                </a>
-            
+            <a href="<%= new_category_path %>" class="btn btn-lemon btn-block mx-auto w-100">
+                <div class="border border-white p-2">
+                    <strong>Add a New Category</strong>
+                </div>
+            </a>
         </div>
     </div>
-</div>
-
-
+  </div>
 </div>

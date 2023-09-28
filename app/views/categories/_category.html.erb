@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-1">
       <% if category.icon.present? %>
         <% if category.icon.end_with?('.png', '.jpg', '.jpeg') %>
           <%= image_tag category.icon, alt: category.name, class: "img-fluid rounded-circle" %>
@@ -9,10 +9,12 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-md-9">
-      <h4><strong><%= category.name %></strong></h4>
+    <div class="col-md-4">
+     <h4><strong><%= category.name %></strong></h4>
+          <p><span><%= category.created_at.strftime('%d %b %Y') %></span></p>
+    </div>
+     <div class="col-md-4">
       <p><strong>Total: $<%= category.purchases.sum(:amount) %></strong></p>
-      <p><span><%= category.created_at.strftime('%d %b %Y') %></span></p>
     </div>
   </div>
 </div>
