@@ -6,7 +6,9 @@ class Category < ApplicationRecord
     # Methods
   
     # Validations
-  
+    validates :name, presence: true
+    validates :icon, presence: true
+    
     # Callbacks
   end
   
