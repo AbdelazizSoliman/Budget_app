@@ -1,16 +1,27 @@
-<div>
-<div>
-  <p>
-    <strong><%= purchase.name %></strong>
-  </p>
-
-  <p>
-    <span><%= purchase.created_at.strftime('%d %b %Y') %></span>
-  </p>
-</div>
+<div class="container">
   
-  <p>
-    $<%= purchase.amount %>
-  </p>
 
+  <!-- Purchase Information -->
+  <div class="row mt-4">
+    <div class="col-md-6">
+    </div>
+   
+  </div>
+
+  <!-- Purchase Details -->
+  <div class="row mt-4">
+    <div class="col-md-4">
+      <p>
+        <strong><%= purchase.name %></strong>
+      </p>
+      <p>
+        <span><%= purchase.created_at.strftime('%d %b %Y') %></span>
+      </p>
+    </div>
+    <div class="col-md-8">
+      <p class="text-right">
+        $<%= purchase.amount %>
+      </p>
+    </div>
+  </div>
 </div>

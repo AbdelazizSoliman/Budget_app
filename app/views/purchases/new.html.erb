@@ -1,9 +1,29 @@
-<div>
-  <ul>
-     <%= link_to 'Back', categories_path %>
-    <h2><strong>New purchase</strong></h2>
-    <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %></li>
-  </ul>
+<div class="container">
+  <nav class="navbar navbar-light bg-primary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><strong>Categories</strong></a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h2><strong>New purchase</strong></h2>
+    </div>
+    
+  </div>
+
+  <%= render "form", attributes: @attributes %>
 </div>
 
-<%= render "form", attributes: @attributes %>
+<div class="container mt-4">
+  <%= link_to 'Back', categories_path, class: "btn btn-secondary float-left" %>
+</div>

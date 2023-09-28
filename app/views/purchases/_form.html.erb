@@ -1,6 +1,6 @@
-<%= form_with(model: attributes[0], local: true) do |form| %>
+<%= form_with(model: attributes[0], local: true, class: 'needs-validation', novalidate: true) do |form| %>
   <% if attributes[0].errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(attributes[0].errors.count, "error") %> prohibited this purchase from being saved:</h2>
 
       <ul>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
+  <div class="form-group">
+    <%= form.label :amount %>
+    <%= form.text_field :amount, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :category, style: "display: block", class: 'invisible' %>
-    <%= form.collection_select :category_id, attributes[1], :id, :name, { prompt: 'Choose category.....' }%>
+  <div class="form-group">
+    <%= form.label :category, class: 'invisible' %>
+    <%= form.collection_select :category_id, attributes[1], :id, :name, { prompt: 'Choose category.....' }, class: 'form-control' %>
   </div>
-
-  <div>
-    <%= form.submit "Save" %>
+<br>
+  <div class="form-group">
+    <%= form.submit "Save", class: 'btn btn-primary' %>
   </div>
 <% end %>
