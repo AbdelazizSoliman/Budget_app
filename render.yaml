@@ -3,6 +3,7 @@ databases:
     databaseName: budget_app_8cj0
     user: budget_app_8cj0_user
 
+previewsEnabled: true
 services:
   - type: web
     name: Budget-App
