@@ -1,0 +1,10 @@
+<div>
+      <ul>
+<li>
+  <%= link_to 'Back', category_path(@category) %>
+</li>        <h2><strong>Editing category</strong></h2>
+        <li><%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %></li>
+      </ul>
+    </div>
+
+<%= render "form", category: @category %>
