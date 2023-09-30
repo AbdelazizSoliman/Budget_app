@@ -16,8 +16,8 @@
 @import 'bootstrap';
 
 .btn-lemon {
-  background-color: #2cc027;
-  border-color: #2cc027;
+  background-color: #5fb523;
+  border-color: #5fb523;
   color: #fff;
 }
 
@@ -27,4 +27,8 @@ html {
       text-decoration: none !important;
     }
   }
+}
+
+body {
+  background-color: #f0f0f0; /* Gray color, you can adjust the shade as needed */
 }

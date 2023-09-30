@@ -1,18 +1,22 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
-      <h1 class="display-4">Welcome!</h1>
-      <!-- Add any additional content here if needed -->
-
       <% if user_signed_in? %>
         <div class="mt-4">
           <a href="<%= categories_path %>" class="btn btn-primary btn-lg">Let's start</a>
         </div>
       <% else %>
-        <div class="mt-4">
-          <a href="/users/sign_in" class="btn btn-success btn-lg mr-3">Sign in</a>
-          <a href="/users/sign_up" class="btn btn-info btn-lg">Sign up</a>
-        </div>
+      <div class="container d-flex flex-column justify-content-between h-75">
+    <h1 class="text-center display-4 font-weight-bold mt-5 fixed-center">Budget Monitoring</h1>
+    <div class="d-flex flex-column text-center align-items-center fixed-bottom gap-4 mt-auto">
+        <%= link_to "LOG IN", categories_path, class: 'btn btn-primary w-100' %>
+        <%= link_to "SIGN UP", new_user_registration_path, class: 'btn btn-secondary w-100' %>
+    </div>
+</div>
+
+
+</div>
+
       <% end %>
     </div>
   </div>
