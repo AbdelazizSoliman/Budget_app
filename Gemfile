@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.4.6'
 
 gem 'pg'
 
@@ -83,3 +83,15 @@ group :test do
   gem 'rspec-rails'
   gem 'selenium-webdriver'
 end
+
+gem "io-console", "~> 0.7"
+
+gem "reline", "~> 0.5"
+
+gem "irb", "~> 1.12"
+
+gem "nokogiri", "~> 1.16"
+
+gem "bigdecimal", "~> 3.1"
+
+gem "mutex_m", "~> 0.3.0"
