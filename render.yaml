@@ -9,7 +9,8 @@ services:
     name: Budget-App
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    startCommand: "./bin/render-start.sh"
+
     envVars:
       - key: DATABASE_URL
         fromDatabase:
